@@ -1,0 +1,55 @@
+﻿@model IEnumerable<PlacementDashboard.Models.Placement>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Placement Dashboard";
+}
+
+@*<h2>Placement Dashboard</h2>*@
+
+<br />
+
+<h3>Student Placement Details</h3>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Enrollment No</th>
+        <th>Student Name</th>
+        <th>Department</th>
+        <th>Passing Year</th>
+        <th>Status</th>
+        <th>Company</th>
+        <th>Job Role</th>
+        <th>Package LPA</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EnrollmentNo</td>
+
+            <td>@item.StudentName</td>
+
+            <td>@item.Department</td>
+
+            <td>@item.PassingYear</td>
+
+            <td>
+                @if (item.IsPlaced)
+                {
+                    <span>Placed</span>
+                }
+                else
+                {
+                    <span>Not Placed</span>
+                }
+            </td>
+
+            <td>@item.CompanyName</td>
+
+            <td>@item.JobRole</td>
+
+            <td>@item.PackageLPA</td>
+        </tr>
+    }
+</table>
